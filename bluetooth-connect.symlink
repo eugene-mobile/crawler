@@ -1,0 +1,13 @@
+#!/usr/bin/expect -f
+
+spawn "bluetoothctl"
+expect "# "
+send "connect AC:FD:93:65:A5:94\r"
+expect {
+  "Connection successful" {
+  puts "\n"
+  exit 0
+  }
+}
+puts "Joystick connected. Initializing crawler.\n"
+exit 1
